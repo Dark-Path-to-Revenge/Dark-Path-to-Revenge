@@ -46,14 +46,14 @@ A jornada de um homem em busca de vingança!
 
 ## Lista de tarefas
 <a name="listadetarefas"></a>
-- Quando escolher um item coloque **\@username** depois dele para evitar mais de uma pessoa fazendo a mesma coisa.
-- Quando completar o item colocar **\[x]** antes dele.
+- Quando escolher um item marque com **\@username** para evitar mais de uma pessoa no mesmo item.
+- Quando completar o item marque com **\[x]**.
 - Tente pegar só um item por vez e, quando finalizar, pegar o próximo. Não se sobrecarregue.:+1:
-- Se não conseguir completar uma tarefa, coloque \*\*Ajuda\*\* depois dele e tente pegar outro item.
-- Se pegar um item marcado com **Ajuda** coloque o seu **\@username** depois do **\@username** principal e ajude o coleguinha.
+
 
 ### Jogador
 <a name="jogador"></a>
+- [ ] Animação @Ahrkano
 - [ ] Movimentação
 - [ ] Pulo duplo
 - [ ] Deslizar
@@ -67,6 +67,7 @@ A jornada de um homem em busca de vingança!
 
 ### Inimigos
 <a name="inimigos"></a>
+- [ ] Animação 
 - [ ] Patrulhamento
 - [ ] Ataque
 - [ ] Morte
