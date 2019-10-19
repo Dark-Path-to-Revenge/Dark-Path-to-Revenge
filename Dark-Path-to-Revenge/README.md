@@ -1,5 +1,6 @@
 ![Dark Path to revenge](.img/darkpath_logo.png)
 # Sumário
+
 1. [Finalidade](#finalidade)
 2. [Resumo](#resumo)
 3. [Características](#caracteristicas)
@@ -11,9 +12,10 @@
     2. [Inimigos](#inimigos)
     3. [Level 01](#level01)
     4. [Interface](#interface)
-3. [Observações gerais](#observacoes)
+8. [Hierarquia](#hierarquia)
+9. [Observações gerais](#observacoes)
 
-### Finalidade
+## Finalidade
 <a name="finalidade"></a>
 Projeto de desenvolvimento de um jogo para à disciplina de Mêcanicas e Balanceamento de Jogos.
 
@@ -89,6 +91,52 @@ A jornada de um homem em busca de vingança!
 - [ ] \(Opcional) Salvamento
 - [ ] \(Opcional) Carregamento
 - [ ] HUD não diegético
+
+## Hierarquia
+<a name="hierarquia"></a>
+Representação hierárquica dos arquivos
+**Atualizar depois**
+```
+darkpath
+├── Assets
+│   └── Enemies
+│   │   └── Andarilho
+│   │   └── Bruxa
+│   │   └── ...
+│   └── Enviroment
+│   │   └── Caverna
+│   │   └── Floresta
+│   │   └── Ruinas
+│   └── GUI
+│   └── Itens
+│   │   └── Artefatos
+│   │   └── Consumiveis
+│   └── Parallax
+│   │   └── Caverna
+│   │   └── Floresta
+│   │   └── Ruinas
+│   └── Player
+│   └── VFX
+│   └── TTF
+├── Scenes
+│   └── Enemies
+│   └── GUI
+│   └── Itens
+│   └── Player
+│   └── Screens
+├── Scripts
+│   └── Enemies
+│   └── General
+│   └── GUI
+│   └── Itens
+│   └── Player
+│   └── Screens
+└── Sounds
+    └── Enemies
+    └── Enviroment
+    └── GUI
+    └── Player
+```
 
 ## Observações gerais
 <a name="observacoes"></a>
