@@ -1,4 +1,4 @@
-![Dark Path to revenge](.img/darkpath_logo.png)
+![Dark Path to revenge](Assets/logo.png)
 # Sumário
 
 1. [Finalidade](#finalidade)
