@@ -1,4 +1,4 @@
-![Dark Path to revenge](Assets/logo.png)
+![Dark Path to revenge](assets/logo.png)
 # Sumário
 
 1. [Finalidade](#finalidade)
@@ -80,7 +80,7 @@ A jornada de um homem em busca de vingança!
 - [ ] Esboço
 - [ ] Quebra-cabeça
 - [ ] Eventos
-- [ ] Tileset
+- [ ] tileset
 - [ ] Áudio
 - [ ] \(Opcional) Efeitos especiais
 
@@ -98,8 +98,8 @@ A jornada de um homem em busca de vingança!
 Representação hierárquica dos arquivos
 **Atualizar depois**
 ```
-darkpath
-├── Assets
+Dark-Path-to-Revenge
+├── assets
 │   └── Enemies
 │   │   └── Andarilho
 │   │   └── Bruxa
@@ -116,28 +116,28 @@ darkpath
 │   │   └── Caverna
 │   │   └── Floresta
 │   │   └── Ruinas
-│   └── Player
-│   └── VFX
+│   └── player
+│   └── vfx
 │   └── TTF
-├── Scenes
+├── scenes
 │   └── Enemies
 │   └── GUI
 │   └── Itens
 │   └── Levels
-│   └── Player
+│   └── player
 │   └── Screens
-├── Scripts
+├── scripts
 │   └── Enemies
 │   └── General
 │   └── GUI
 │   └── Itens
-│   └── Player
+│   └── player
 │   └── Screens
 └── Sounds
     └── Enemies
     └── Enviroment
     └── GUI
-    └── Player
+    └── player
 ```
 
 ## Observações gerais
