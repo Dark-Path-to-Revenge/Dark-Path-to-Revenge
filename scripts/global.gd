@@ -22,7 +22,7 @@ var gravity 		= 10
 var double_jump		= false
 var climb_ladder	= false
 var climb_fall		= false
-var ducking			= false
+var crouch			= false
 var sliding			= false
 # variaveis de ataque no ar
 var air_attacking	= false

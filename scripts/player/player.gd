@@ -3,25 +3,43 @@ extends KinematicBody2D
 const UP 		= Vector2(0,-1)
 
 #Load scripts
-var load_inputs = load("res://scripts/player/player_inputs.gd")
-var my_inputs = load_inputs.new()
+var movement_script = load("res://scripts/player/movement.gd")
+var _run = movement_script.new()
+
+var jump_script = load("res://scripts/player/jump.gd")
+var _jump = jump_script.new()
+
+var slide_script = load("res://scripts/player/slide.gd")
+var _slide = slide_script.new()
+
+var crouch_script = load("res://scripts/player/crouch.gd")
+var _crouch = crouch_script.new()
+
 onready var node = $AnimatedSprite
 
 func apply_gravity():
 	Global.move.y += Global.gravity
 
 func run():
-	my_inputs.movement(node, is_on_floor())
+	_run.run(node, is_on_floor())
 	
 func jump():
-	my_inputs.jump(node, is_on_floor())
-	
+	_jump.jump(node, is_on_floor())
+
+func slide():
+	_slide.slide(node, $Upper, $Slide, is_on_floor())
+
+func crouch():
+	_crouch.crouch(node, $Upper, $Bottom, is_on_floor())
+
 func read_inputs():
 	apply_gravity()
 	run()
+	#BUG NO SLIDE
+	slide()
 	jump()
+	crouch()
 	#attack()
-	#slide()
 	#magic()
 	#special()
 
