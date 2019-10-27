@@ -1,22 +1,18 @@
-extends KinematicBody2D
-
-func run(node, onfloor):
-	#anda para esquerda ou para direita ou fica parado
+func run(player):
 	if Input.is_action_pressed("ui_left"):
-		node.flip_h = true
-		if !Global.crouch:
-			Global.move.x = -Global.speedX
-			if onfloor:
-				node.animation = "run"
+		player.animated.flip_h = true
+		if !player.crouched:
+			player.move.x = -player.speedX
+			if player.is_on_floor():
+				player.animated.animation = "run"
 	elif Input.is_action_pressed("ui_right"):
-		node.flip_h = false
-		if !Global.crouch:
-			Global.move.x = Global.speedX
-			if onfloor:
-				node.animation = "run"
-	else:
-		Global.move.x = 0
-		if onfloor and !Global.crouch:
-			node.animation = "idle"
-			node.get_sprite_frames().set_animation_speed("idle", 5.0)
-			Global.gravity = 10
+		player.animated.flip_h = false
+		if !player.crouched:
+			player.move.x = player.speedX
+			if player.is_on_floor():
+				player.animated.animation = "run"
+	elif player.animated.animation != "idle":
+		player.move.x = 0
+		if player.is_on_floor() and !player.crouched:
+			player.animated.animation = "idle"
+			player.gravity = 10

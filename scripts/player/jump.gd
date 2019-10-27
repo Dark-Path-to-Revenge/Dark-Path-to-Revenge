@@ -1,23 +1,13 @@
-extends KinematicBody2D
+var is_double_jump = false
 
-#ANIMACOES
-func set_jump(node, type):
-	match type:
-		"jump":
-			node.animation = "jump"
-			Global.move.y = Global.jumpforce
-			Global.double_jump = true
-		"salt":
-			node.animation = "salt"
-			Global.move.y = Global.jumpforce
-			Global.double_jump = false
+func set_jump(player, type):
+	player.animated.animation = type
+	player.move.y = player.jumpforce
+	is_double_jump = type == "salt"
 
-func jump(node, onfloor):
-	
-	if onfloor:
-		if Input.is_action_just_pressed("ui_jump") and !Global.double_jump and !Global.sliding and !Global.crouch:
-			set_jump(node, "jump")
-	else:
-		#pula uma segunda vez	
-		if Input.is_action_just_pressed("ui_jump") and Global.double_jump:
-			set_jump(node, "salt")
+func run(player):
+	if Input.is_action_just_pressed("ui_jump") and !player.sliding and !player.crouched:
+		if player.is_on_floor():
+			set_jump(player, "jump")
+		elif not is_double_jump:
+			set_jump(player, "salt")

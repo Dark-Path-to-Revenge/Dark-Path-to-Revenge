@@ -61,7 +61,7 @@ shape = SubResource( 1 )
 [node name="player" parent="." groups=[
 "player",
 ] instance=ExtResource( 3 )]
-position = Vector2( 488.683, 551.15 )
+position = Vector2( 424.083, 557.8 )
 
 [node name="Area2D" type="Area2D" parent="."]
 editor/display_folded = true

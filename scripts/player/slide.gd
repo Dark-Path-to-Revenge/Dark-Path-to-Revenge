@@ -1,27 +1,18 @@
-extends KinematicBody2D
+var limit_time = 30
+var count_time = 0
 
-func set_slide(node, standbox, slidebox,type):
-	match type:
-		"slide_on":
-			Global.sliding = true
-			standbox.set_disabled(true)
-			slidebox.set_disabled(false)
-			node.animation = "slide"
-			if node.flip_h == true:
-				Global.move.x = -180
-			else:
-				Global.move.x = 180
-		"slide_off":
-			Global.sliding = false
-			slidebox.set_disabled(true)
-			standbox.set_disabled(false)
-
-func slide(node, standbox, slidebox, onfloor):
-	if onfloor:
-		#desliza	
-		if Input.is_action_pressed("ui_slide") and !Global.attacking and !Global.crouch and !Global.double_jump:
-			set_slide(node, standbox, slidebox,"slide_on")
-		if Input.is_action_just_released("ui_slide") and Global.sliding:
-			set_slide(node, standbox, slidebox,"slide_off")
-	else:
-		Global.sliding = false
+func run(player):
+	if (Input.is_action_pressed("ui_slide")
+			and player.is_on_floor() and !player.attacking
+			and !player.crouched and count_time < limit_time):
+		player.sliding = true
+		count_time += 1
+		player.box_slide.set_disabled(true)
+		player.box_upper.set_disabled(false)
+		player.animated.animation = "slide"
+		player.move.x = -180 if player.animated.flip_h else 180
+	elif Input.is_action_just_released("ui_slide") and player.sliding:
+		player.sliding = false
+		count_time = 0
+		player.box_upper.set_disabled(true)
+		player.box_slide.set_disabled(false)
