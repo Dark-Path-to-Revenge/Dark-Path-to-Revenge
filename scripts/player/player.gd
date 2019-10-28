@@ -9,6 +9,7 @@ var movement = load("res://scripts/player/movement.gd").new()
 var jump = load("res://scripts/player/jump.gd").new()
 var crouch = load("res://scripts/player/crouch.gd").new()
 var slide = load("res://scripts/player/slide.gd").new()
+var attack = load("res://scripts/player/attack_sword.gd").new()
 
 #variaveis de controle de movimento
 var move = Vector2()
@@ -39,7 +40,7 @@ func _process(delta):
 	jump.run(self)
 	crouch.run(self)
 	slide.run(self)
-	#attack.run(self)
+	attack.run(self)
 	#magic.run(self)
 	#special.run(self)
 	move = move_and_slide(move, Global.UP)
