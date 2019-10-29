@@ -11,17 +11,20 @@ onready var box_upper = $Upper
 onready var box_bottom = $Bottom
 onready var box_slide = $Slide
 
-export var gravity = 10
-export var speed_moviment = 200
-export var jump_force = 350
+export var gravity = 600
+export var moviment_speed = 12000
+export var slide_speed = 12000
+export var slide_duration = 40
+export var jump_force = 21000
+export var jump_quantity = 2
 
 var move = Vector2()
-var dalta = 1
+var delta = 0
 var is_in_action = false
 
 func _process(delta):
-	self.dalta = dalta
-	move.y += gravity
+	self.delta = delta
+	move.y += gravity * delta
 
 	movement.run(self)
 	crouch.run(self)
