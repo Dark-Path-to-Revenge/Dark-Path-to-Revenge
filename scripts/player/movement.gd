@@ -9,7 +9,10 @@ func run(player):
 		player.move.x = player.moviment_speed * player.delta
 		if not player.is_in_action:
 			player.animated.animation = "moviment"
-	else:
+	elif player.animated.animation != "idle":
 		player.move.x = 0
 		if not player.is_in_action:
 			player.animated.animation = "idle"
+			player.box_upper.set_disabled(true)
+			player.box_bottom.set_disabled(false)
+			player.box_slide.set_disabled(false)

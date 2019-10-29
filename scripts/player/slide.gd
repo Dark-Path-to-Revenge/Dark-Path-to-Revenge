@@ -14,7 +14,4 @@ func run(player):
 	elif Input.is_action_just_released("ui_slide"):
 		count_duration = 0
 	elif player.animated.animation == "slide":
-		player.box_upper.set_disabled(true)
-		player.box_slide.set_disabled(false)
-		player.box_bottom.set_disabled(false)
 		player.is_in_action = false

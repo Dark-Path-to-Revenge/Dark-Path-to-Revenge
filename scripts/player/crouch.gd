@@ -6,7 +6,4 @@ func run(player):
 		player.box_upper.set_disabled(false)
 		player.box_slide.set_disabled(false)
 	elif player.animated.animation == "crouch":
-		player.box_upper.set_disabled(true)
-		player.box_bottom.set_disabled(false)
-		player.box_slide.set_disabled(false)
 		player.is_in_action = false
