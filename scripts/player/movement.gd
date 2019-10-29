@@ -1,19 +1,15 @@
 func run(player):
-	if !player.attacking:
-		if Input.is_action_pressed("ui_left"):
-			player.animated.flip_h = true
-			if !player.crouched:
-				player.move.x = -player.speedX
-				if player.is_on_floor():
-					player.animated.animation = "run"
-		elif Input.is_action_pressed("ui_right"):
-			player.animated.flip_h = false
-			if !player.crouched:
-				player.move.x = player.speedX
-				if player.is_on_floor():
-					player.animated.animation = "run"
-		elif player.animated.animation != "idle":
-			player.move.x = 0
-			if player.is_on_floor() and !player.crouched:
-				player.animated.animation = "idle"
-				player.gravity = 10
+	if Input.is_action_pressed("ui_left"):
+		player.animated.flip_h = true
+		player.move.x = -player.speed_moviment * player.dalta
+		if not player.is_in_action:
+			player.animated.animation = "moviment"
+	elif Input.is_action_pressed("ui_right"):
+		player.animated.flip_h = false
+		player.move.x = player.speed_moviment * player.dalta
+		if not player.is_in_action:
+			player.animated.animation = "moviment"
+	else:
+		player.move.x = 0
+		if not player.is_in_action:
+			player.animated.animation = "idle"
