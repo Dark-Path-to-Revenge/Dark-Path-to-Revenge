@@ -4,12 +4,13 @@ var movement = load("res://scripts/player/movement.gd").new()
 var crouch = load("res://scripts/player/crouch.gd").new()
 var slide = load("res://scripts/player/slide.gd").new()
 var jump = load("res://scripts/player/jump.gd").new()
+var magic = load("res://scripts/player/magic.gd").new()
 var attack_sword = load("res://scripts/player/attack_sword.gd").new()
 
-onready var animated = $AnimatedSprite
-onready var box_upper = $Upper
-onready var box_bottom = $Bottom
-onready var box_slide = $Slide
+onready var animated = $animated
+onready var body_normal = $body_normal
+onready var body_crouch = $body_crouch
+onready var body_slide = $body_slide
 
 export var gravity = 600
 export var moviment_speed = 12000
@@ -30,8 +31,8 @@ func _process(delta):
 	crouch.run(self)
 	slide.run(self)
 	jump.run(self)
+	magic.run(self)
 	attack_sword.run(self)
-	#magic.run(self)
-	#special.run(self)
+	#fury.run(self)
 
 	move = move_and_slide(move, global.UP)

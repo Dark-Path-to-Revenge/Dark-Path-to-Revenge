@@ -1,0 +1,2 @@
+func run(player):
+	pass

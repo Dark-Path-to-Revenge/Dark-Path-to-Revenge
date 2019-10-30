@@ -6,9 +6,9 @@ func run(player):
 		jump_count += 1
 		player.animated.animation = "salt" if jump_count > 1 else "jump"
 		player.move.y = -player.jump_force * player.delta
-		player.box_upper.set_disabled(true)
-		player.box_slide.set_disabled(false)
-		player.box_bottom.set_disabled(false)
+		player.body_normal.set_disabled(true)
+		player.body_slide.set_disabled(false)
+		player.body_crouch.set_disabled(false)
 	elif player.is_on_floor():
 		jump_count = 0
 		if player.animated.animation in ["jump", "salt"]:
