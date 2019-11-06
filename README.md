@@ -46,20 +46,16 @@ A jornada de um homem em busca de vingança!
 
 ## Lista de tarefas
 <a name="listadetarefas"></a>
-- Quando escolher um item marque com **\@username** para evitar mais de uma pessoa no mesmo item.
-- Quando completar o item marque com **\[x]**.
-- Tente pegar só um item por vez e, quando finalizar, pegar o próximo. Não se sobrecarregue.:+1:
-
 
 ### Jogador
 <a name="jogador"></a>
-- [ ] Animação @Ahrkano
-- [ ] Movimentação
-- [ ] Pulo duplo
-- [ ] Deslizar
+- [x] Animação 
+- [x] Movimentação
+- [x] Pulo duplo
+- [x] Deslizar
 - [ ] Usar escada
-- [ ] Ataques com espada em solo
-- [ ] Ataques com espada no ar
+- [x] Ataques com espada em solo
+- [x] Ataques com espada no ar
 - [ ] Ataques à distância com magia
 - [ ] Habilidade especial
 - [ ] Coleta/Utilização de itens
@@ -67,9 +63,9 @@ A jornada de um homem em busca de vingança!
 
 ### Inimigos
 <a name="inimigos"></a>
-- [ ] Animação 
-- [ ] Patrulhamento
-- [ ] Ataque
+- [x] Animação 
+- [x] Patrulhamento
+- [x] Ataque
 - [ ] Morte
 - [ ] Itens
 - [ ] Conjuração
