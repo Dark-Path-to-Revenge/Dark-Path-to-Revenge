@@ -5,9 +5,9 @@ func run(player):
 			and player.is_on_floor() and count_duration < player.slide_duration):
 		player.is_in_action = true
 		count_duration += player.delta * 100
-		player.body_slide.set_disabled(true)
-		player.body_normal.set_disabled(false)
-		player.body_crouch.set_disabled(false)
+		player.body_slide.set_disabled(false)
+		player.body_normal.set_disabled(true)
+		player.body_crouch.set_disabled(true)
 		player.animated.animation = 'slide'
 		player.move.x = -player.slide_speed if player.animated.flip_h else player.slide_speed
 		player.move.x *= player.delta

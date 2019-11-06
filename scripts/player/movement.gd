@@ -13,6 +13,6 @@ func run(player):
 		player.move.x = 0
 		if not player.is_in_action:
 			player.animated.animation = 'idle'
-			player.body_normal.set_disabled(true)
-			player.body_crouch.set_disabled(false)
-			player.body_slide.set_disabled(false)
+			player.body_normal.set_disabled(false)
+			player.body_crouch.set_disabled(true)
+			player.body_slide.set_disabled(true)
