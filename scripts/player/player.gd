@@ -12,6 +12,7 @@ onready var body_normal = $body_normal
 onready var body_crouch = $body_crouch
 onready var body_slide = $body_slide
 
+export var life = 100
 export var gravity = 600
 export var moviment_speed = 12000
 export var slide_speed = 12000
@@ -36,3 +37,8 @@ func _process(delta):
 	#fury.run(self)
 
 	move = move_and_slide(move, global.UP)
+
+func hit(loss):
+	life -= loss
+	if life <= 0:
+		print('KILL')
