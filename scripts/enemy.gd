@@ -5,41 +5,49 @@ onready var player = get_node(target)
 
 export var life = 100
 export var power_hit = 10
+export var moviment_speed = 8000
 export var attack_frame_start = 15
 export var attack_frame_end = 19
 export (NodePath) var target
-export var speed = 8000
 
 var player_entered = false
 var attacked = false
 
-func _physics_process(delta):
-	animated.flip_h = player.position < position
-	var distance2Hero = global_position.distance_to(player.global_position)
+func _ready():
+	add_to_group('enemy')
 
-	if animated.animation == 'attack':
-		attack()
-	elif player_entered:
-		animated.play('attack')
-		yield(animated, 'animation_finished')
-		animated.animation = 'idle'
-	elif distance2Hero < 300:
-		animated.animation = 'run'
-		var dir = (player.global_position - global_position).normalized()
-		dir.y = 0
-		move_and_slide(dir * speed * delta)
-	else:
-		animated.animation = 'idle'
+func _physics_process(delta):
+	if life > 0:
+		animated.flip_h = player.position < position
+	
+		if animated.animation == 'attack':
+			attack()
+		elif player_entered:
+			animated.play('attack')
+			yield(animated, 'animation_finished')
+			animated.animation = 'idle'
+		elif global_position.distance_to(player.global_position) < 300:
+			animated.animation = 'run'
+			var dir = (player.global_position - global_position).normalized()
+			dir.y = 0
+			dir = move_and_slide(dir * moviment_speed * delta)
+		else:
+			animated.animation = 'idle'
 
 func attack():
-	if attack_frame_start <= animated.frame and animated.frame <= attack_frame_end:
-		if player_entered and not attacked:
-			attacked = true
-			player.hit(power_hit)
-			print(animated.frame)
-			print(animated.frames.get_frame_count('attack'))
-	else:
+	if attack_frame_start > animated.frame or animated.frame > attack_frame_end:
 		attacked = false
+	elif player_entered and not attacked:
+		attacked = true
+		player.hit(power_hit)
+
+func hit(loss):
+	life -= loss
+	if life <= 0:
+		animated.flip_h = player.position > position
+		animated.play('death')
+		yield(animated, 'animation_finished')
+		queue_free()
 
 func _on_attack_entered(body):
 	if body == player:

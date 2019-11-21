@@ -1,11 +1,17 @@
+var is_left = false
+
 func run(player):
 	if Input.is_action_pressed('ui_left'):
-		player.animated.flip_h = true
+		if not is_left:
+			is_left = true
+			player.scale.x = -1
 		player.move.x = -player.moviment_speed * player.delta
 		if not player.is_in_action:
 			player.animated.animation = 'moviment'
 	elif Input.is_action_pressed('ui_right'):
-		player.animated.flip_h = false
+		if is_left:
+			is_left = false
+			player.scale.x = -1
 		player.move.x = player.moviment_speed * player.delta
 		if not player.is_in_action:
 			player.animated.animation = 'moviment'
