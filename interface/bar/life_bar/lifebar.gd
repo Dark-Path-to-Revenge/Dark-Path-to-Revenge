@@ -39,4 +39,3 @@ func _on_player_player_dead():
 
 func _on_player_player_health():
 	set_current_value(global.HP)
-

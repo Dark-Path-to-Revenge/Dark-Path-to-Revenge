@@ -6,8 +6,8 @@ const UP = Vector2(0,-1)
 var HP = 100
 var maxHP = 200
 # pontos de mana
-var MP = 0
-var maxMP = 200
+var MP = 50
+var maxMP = 50
 # almas concedem coragem
 var SOULS = 0
 # moedas compram melhorias

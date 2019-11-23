@@ -24,8 +24,10 @@ export var slide_duration = 40
 export var jump_force = 21000
 export var jump_quantity = 2
 export var power_hit = 10
+export var magic_hit = 5
 
 signal player_health
+signal player_mana
 signal player_dead
 
 var move = Vector2()
@@ -65,3 +67,7 @@ func update_health(value):
 	global.HP = value
 	life = global.HP
 	emit_signal("player_health")
+	
+func update_mana(value):
+	global.MP = value
+	emit_signal("player_mana")

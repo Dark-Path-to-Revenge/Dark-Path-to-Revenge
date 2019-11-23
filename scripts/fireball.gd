@@ -6,6 +6,9 @@ export var speed = 400
 
 var velocity = Vector2()
 
+func set_fireball_damage(dmg):
+	damage = dmg
+
 func set_fireball_direction(dir):
 	direction = dir
 	if direction == -1:
