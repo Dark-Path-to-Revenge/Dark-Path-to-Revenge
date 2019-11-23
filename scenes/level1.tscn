@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/environment/tiles/C1013.png" type="Texture" id=2]
-[ext_resource path="res://scripts/ladder.gd" type="Script" id=3]
-[ext_resource path="res://scenes/frog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interface/bar/Bar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/environment/tiles/C1013.png" type="Texture" id=3]
+[ext_resource path="res://scripts/ladder.gd" type="Script" id=4]
+[ext_resource path="res://scenes/frog.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/potion.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 465.494, 37.0049 )
@@ -16,6 +18,8 @@ extents = Vector2( 2.20825, 108.418 )
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 424.083, 557.8 )
 
+[node name="Bar" parent="." instance=ExtResource( 2 )]
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Node" type="Node" parent="StaticBody2D"]
@@ -24,32 +28,32 @@ editor/display_folded = true
 [node name="Sprite" type="Sprite" parent="StaticBody2D/Node"]
 position = Vector2( 541.851, 513.854 )
 scale = Vector2( 0.511885, 0.511885 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="StaticBody2D/Node"]
 position = Vector2( 540.798, 466.486 )
 scale = Vector2( 0.511885, 0.511885 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Sprite3" type="Sprite" parent="StaticBody2D/Node"]
 position = Vector2( 540.798, 420.17 )
 scale = Vector2( 0.511885, 0.511885 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Sprite4" type="Sprite" parent="StaticBody2D/Node"]
 position = Vector2( 541.851, 373.854 )
 scale = Vector2( 0.511885, 0.511885 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Sprite5" type="Sprite" parent="StaticBody2D/Node"]
 position = Vector2( 541.851, 328.591 )
 scale = Vector2( 0.511885, 0.511885 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Sprite6" type="Sprite" parent="StaticBody2D/Node"]
 position = Vector2( 444.636, 599.126 )
 scale = Vector2( 19.7403, 0.202431 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 519.989, 599.173 )
@@ -58,14 +62,25 @@ shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 editor/display_folded = true
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 542.777, 427.754 )
 shape = SubResource( 2 )
 
-[node name="frog" parent="." instance=ExtResource( 4 )]
+[node name="frog" parent="." instance=ExtResource( 5 )]
 position = Vector2( 781.205, 549.529 )
 target = NodePath("../player")
+
+[node name="pot" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Area2D" parent="pot" instance=ExtResource( 6 )]
+position = Vector2( 254.053, 565.313 )
+
+[node name="Area2D2" parent="pot" instance=ExtResource( 6 )]
+position = Vector2( 168.969, 490.943 )
+[connection signal="player_dead" from="player" to="Bar" method="_on_player_player_dead"]
+[connection signal="player_health" from="player" to="Bar" method="_on_player_player_health"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_Area2D_body_exited"]

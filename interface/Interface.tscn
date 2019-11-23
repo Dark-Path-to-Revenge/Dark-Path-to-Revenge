@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interface/bar/Bar.gd" type="Script" id=1]
+[ext_resource path="res://interface/bar/life_bar/LifeBar.tscn" type="PackedScene" id=2]
+
+[node name="Interface" type="Control"]
+anchor_right = 1.0
+margin_bottom = 151.0
+script = ExtResource( 1 )
+
+[node name="Bars" type="VBoxContainer" parent="."]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 530.0
+margin_bottom = 127.0
+rect_scale = Vector2( 0.452841, 0.452841 )
+size_flags_horizontal = 3
+
+[node name="LifeBar" parent="Bars" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 500.0
+margin_bottom = 0.0
+rect_scale = Vector2( 1, 1 )
+script = null

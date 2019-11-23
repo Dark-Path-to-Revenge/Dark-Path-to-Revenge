@@ -9,7 +9,7 @@ func run(player):
 			player.body_normal.set_disabled(true)
 			player.body_crouch.set_disabled(true)
 			player.animated.animation = 'slide'
-			player.move.x = -player.slide_speed if player.animated.flip_h else player.slide_speed
+			player.move.x = -player.slide_speed if player.is_left else player.slide_speed
 			player.move.x *= player.delta
 	elif Input.is_action_just_released('ui_slide'):
 		count_duration = 0
