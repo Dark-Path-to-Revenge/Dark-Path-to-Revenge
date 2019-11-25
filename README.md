@@ -56,9 +56,9 @@ A jornada de um homem em busca de vingança!
 - [ ] Usar escada
 - [x] Ataques com espada em solo
 - [x] Ataques com espada no ar
-- [ ] Ataques à distância com magia
+- [x] Ataques à distância com magia
 - [ ] Habilidade especial
-- [ ] Coleta/Utilização de itens
+- [x] Coleta/Utilização de itens
 - [ ] Morte
 
 ### Inimigos
@@ -66,28 +66,28 @@ A jornada de um homem em busca de vingança!
 - [x] Animação 
 - [x] Patrulhamento
 - [x] Ataque
-- [ ] Morte
+- [x] Morte
 - [ ] Itens
 - [ ] Conjuração
 - [ ] Transformação
 
 ### Level 01
 <a name="level01"></a>
-- [ ] Esboço
+- [x] Esboço
 - [ ] Quebra-cabeça
 - [ ] Eventos
-- [ ] tileset
+- [x] tileset
 - [ ] Áudio
 - [ ] \(Opcional) Efeitos especiais
 
 ### Interface
 <a name="interface"></a>
-- [ ] Telas
-- [ ] Menus
+- [x] Telas
+- [x] Menus
 - [ ] \(Opcional) Inventário
 - [ ] \(Opcional) Salvamento
 - [ ] \(Opcional) Carregamento
-- [ ] HUD não diegético
+- [x] HUD não diegético
 
 ## Hierarquia
 <a name="hierarquia"></a>
