@@ -6,19 +6,19 @@ const UP = Vector2(0,-1)
 var level = 0
 var player
 var save
-var is_load_game = false
 var is_gameover = false
 
 func init_player(player):
 	self.player = player
-	if is_load_game:
+	if save:
 		player.life = save.life
+		player.update_life()
 		player.energy = save.energy
+		player.update_energy()
 		player.lives = save.lives
 
 func gameover():
 	level = 0
-	is_load_game = false
 	is_gameover = true
 	get_tree().change_scene('res://scenes/levels/TitleScreen.tscn')
 
@@ -38,7 +38,6 @@ func next_level():
 	show_level()
 
 func load_game():
-	is_load_game = true
 	var save_file = File.new()
 	save_file.open(save_file_name, File.READ)
 	save = save_file.get_var()

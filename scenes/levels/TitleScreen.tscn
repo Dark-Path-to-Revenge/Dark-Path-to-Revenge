@@ -19,7 +19,7 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "intro",
-"speed": 5.0
+"speed": 15.0
 } ]
 
 [sub_resource type="DynamicFont" id=2]
@@ -48,13 +48,14 @@ position = Vector2( 15.1093, 0 )
 scale = Vector2( 1.57814, 1.80959 )
 frames = SubResource( 1 )
 animation = "intro"
-frame = 1
+frame = 7
 playing = true
 centered = false
 offset = Vector2( -100, 0 )
 
 [node name="gameover" type="Node2D" parent="TELA/BG"]
 editor/display_folded = true
+visible = false
 position = Vector2( 855.771, 514.882 )
 __meta__ = {
 "_edit_group_": true

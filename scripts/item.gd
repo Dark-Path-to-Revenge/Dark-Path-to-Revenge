@@ -10,8 +10,8 @@ func _on_body_entered(body):
 	if body.is_in_group('player'):
 		# LIFE
 		if id == 1: 
-			body.pass_life(value)
+			body.plus_life(value)
 		# ENERGY
 		elif id == 2:
-			body.pass_energy(value)
+			body.plus_energy(value)
 		queue_free()

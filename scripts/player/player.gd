@@ -84,14 +84,20 @@ func magic_hit():
 	energy -= power_energy_hit
 	$camera/EnergyBar.set_current_value(energy)
 
-func pass_life(value):
+func plus_life(value):
 	life += value
+	update_life()
+
+func update_life():
 	if life > $camera/LifeBar.maximum_value:
 		life = $camera/LifeBar.maximum_value
 	$camera/LifeBar.set_current_value(life)
 
-func pass_energy(value):
+func plus_energy(value):
 	energy += value
+	update_energy()
+
+func update_energy():
 	if energy > $camera/EnergyBar.maximum_value:
 		energy = $camera/EnergyBar.maximum_value
 	$camera/EnergyBar.set_current_value(energy)
@@ -99,5 +105,4 @@ func pass_energy(value):
 func player_respawn(sec):
 	yield(get_tree().create_timer(sec), "timeout")
 	set_position(respawn)
-	pass_life($camera/LifeBar.maximum_value)
-	
+	plus_life($camera/LifeBar.maximum_value)
