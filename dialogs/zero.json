@@ -1,0 +1,49 @@
+{
+	"Force" : 0,
+	"Random": 0,
+	"Nodes" :
+	 [
+		{
+			"id"      : 0,
+			"name"    : "???",
+			"text"    : "Aproxime-se... Eu vou lhe contar uma história...De um vilarejo muito distante... com lindas plantações e muitos animais... ",
+			"next_id" : 1,
+			"choices" : []
+		},
+
+		{
+			"id"      : 1,
+			"name"    : "???",
+			"text"    : "Onde a vida era simples e tranquila. Até que certo dia o mal despertou... e fez de Sekai o seu alvo...",
+			"next_id" : 2,
+			"choices" : []
+		},
+		
+		{
+			"id"      : 2,
+			"name"    : "???",
+			"text"    : "E tinha também este homem... Ah pobre criatura... voltava feliz de sua jornada cansativa e tudo que recebeu foi a dor...",
+			"next_id" : 3,
+			"choices" : []
+		},
+		
+		{
+			"id"      : 3,
+			"name"    : "???",
+			"text"    : "Todos a quem conhecia... todos que ele amava... Foram tirados à força de sua vida... e nada mais lhe restou...",
+			"next_id" : 4,
+			"choices" : []
+		},
+		
+		{
+			"id"      : 4,
+			"name"    : "???",
+			"text"    : "...Além da vingança... Sim, o doce desejo de vingança... Que aos poucos consumia sua razão...",
+			"next_id" : -1,
+			"choices" : []
+		}
+
+
+	]
+
+}
