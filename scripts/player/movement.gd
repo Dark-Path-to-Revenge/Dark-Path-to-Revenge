@@ -6,6 +6,7 @@ func run(player):
 		if not player.is_left:
 			player.is_left = true
 			player.scale.x = -1
+			player.camera.scale.x = -1
 		player.move.x = -player.moviment_speed * player.delta
 		if not player.is_in_action:
 			player.animated.animation = 'moviment'
@@ -14,6 +15,7 @@ func run(player):
 		if player.is_left:
 			player.is_left = false
 			player.scale.x = -1
+			player.camera.scale.x = 1
 		player.move.x = player.moviment_speed * player.delta
 		if not player.is_in_action:
 			player.animated.animation = 'moviment'

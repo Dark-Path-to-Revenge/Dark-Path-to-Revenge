@@ -2,9 +2,6 @@ extends Node
 
 const UP = Vector2(0,-1)
 
-# pontos de vida
-var HP = 100
-var maxHP = 200
 # pontos de mana
 var MP = 50
 var maxMP = 50

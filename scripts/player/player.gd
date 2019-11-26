@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const fireball = preload("res://scenes/fireball.tscn")
+
 var movement = load('res://scripts/player/movement.gd').new()
 var crouch = load('res://scripts/player/crouch.gd').new()
 var slide = load('res://scripts/player/slide.gd').new()
@@ -8,6 +10,7 @@ var magic = load('res://scripts/player/magic.gd').new()
 var attack_sword = load('res://scripts/player/attack_sword.gd').new()
 
 onready var animated = $animated
+onready var camera = $camera
 onready var body_normal = $body_normal
 onready var body_crouch = $body_crouch
 onready var body_slide = $body_slide
@@ -17,6 +20,7 @@ onready var attack_sword_3 = $attack_sword_3
 onready var shot = $magic_shot
 
 export var life = 100
+export var energy = 50
 export var gravity = 600
 export var moviment_speed = 12000
 export var slide_speed = 12000
@@ -24,23 +28,19 @@ export var slide_duration = 40
 export var jump_force = 21000
 export var jump_quantity = 2
 export var power_hit = 10
-export var magic_hit = 5
-
-signal player_health
-signal player_mana
-signal player_dead
+export var power_energy_hit = 10
+export var power_magic_hit = 8
 
 var move = Vector2()
 var delta = 0
 var is_in_action = false
 var is_left = false
 
-const fireball = preload("res://scenes/fireball.tscn")
-
 func _ready():
-	global.HP = life
-	global.maxHP = life
-	emit_signal("player_health")
+	$camera/LifeBar.set_maximum_value(life)
+	$camera/LifeBar.set_current_value(life)
+	$camera/EnergyBar.set_maximum_value(energy)
+	$camera/EnergyBar.set_current_value(energy)
 
 func _physics_process(delta):
 	self.delta = delta
@@ -57,17 +57,23 @@ func _physics_process(delta):
 
 func hit(loss):
 	life -= loss
-	if life <= 0:
-		update_health(0)
-		emit_signal("player_dead")
-	else:
-		update_health(life)
+	if life < 0:
+		life = 0
+		print('DEAD')
+	$camera/LifeBar.set_current_value(life)
 
-func update_health(value):
-	global.HP = value
-	life = global.HP
-	emit_signal("player_health")
-	
-func update_mana(value):
-	global.MP = value
-	emit_signal("player_mana")
+func magic_hit():
+	energy -= power_energy_hit
+	$camera/EnergyBar.set_current_value(energy)
+
+func pass_life(value):
+	life += value
+	if life > $camera/LifeBar.maximum_value:
+		life = $camera/LifeBar.maximum_value
+	$camera/LifeBar.set_current_value(life)
+
+func pass_energy(value):
+	energy += value
+	if energy > $camera/EnergyBar.maximum_value:
+		energy = $camera/EnergyBar.maximum_value
+	$camera/EnergyBar.set_current_value(energy)

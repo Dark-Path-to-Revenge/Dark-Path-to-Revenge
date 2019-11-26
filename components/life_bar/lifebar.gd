@@ -4,10 +4,10 @@ export(int) var minimum_value = 0 setget set_minimum_value
 export(int) var maximum_value = 34 setget set_maximum_value
 export(int) var current_value = 12 setget set_current_value
 
-func _ready():
+#func _ready():
 	#$Bars/LifeBar.show()
-	set_maximum_value(global.maxHP)
-	set_current_value(global.HP)
+	#set_maximum_value(global.maxHP)
+	#set_current_value(global.HP)
 
 func set_current_value(value):
 	if not has_node('TextureProgress'):
@@ -31,11 +31,3 @@ func set_maximum_value(value):
 
 func update_count_text():
 	$Count/Number.text = str(current_value) + '/' + str(maximum_value)
-
-
-func _on_player_player_dead():
-	#$Bars/LifeBar.hide()
-	pass
-
-func _on_player_player_health():
-	set_current_value(global.HP)

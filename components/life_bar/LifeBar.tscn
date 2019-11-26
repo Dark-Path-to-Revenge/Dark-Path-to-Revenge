@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://interface/bar/life_bar/lifebar.gd" type="Script" id=1]
-[ext_resource path="res://interface/bar/label_bg.png" type="Texture" id=2]
-[ext_resource path="res://interface/bar/life_bar/label_HP.png" type="Texture" id=3]
-[ext_resource path="res://interface/theme/default_theme.tres" type="Theme" id=4]
-[ext_resource path="res://interface/bar/life_bar/bg.png" type="Texture" id=5]
-[ext_resource path="res://interface/bar/life_bar/fill.png" type="Texture" id=6]
+[ext_resource path="res://components/life_bar/lifebar.gd" type="Script" id=1]
+[ext_resource path="res://components/label_bg.png" type="Texture" id=2]
+[ext_resource path="res://components/life_bar/label_HP.png" type="Texture" id=3]
+[ext_resource path="res://assets/theme/default_theme.tres" type="Theme" id=4]
+[ext_resource path="res://components/life_bar/bg.png" type="Texture" id=5]
+[ext_resource path="res://components/life_bar/fill.png" type="Texture" id=6]
 
 [node name="LifeBar" type="HBoxContainer"]
 margin_left = 20.0
