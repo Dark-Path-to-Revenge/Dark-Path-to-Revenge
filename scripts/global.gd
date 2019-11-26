@@ -22,7 +22,8 @@ func next_level():
 		data = {
 			'level': level,
 			'life': player.life,
-			'energy': player.energy
+			'energy': player.energy,
+			'lives': player.live
 			}
 		save_game.store_var(data)
 		save_game.close()

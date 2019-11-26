@@ -19,9 +19,10 @@ onready var attack_sword_2 = $attack_sword_2
 onready var attack_sword_3 = $attack_sword_3
 onready var shot = $magic_shot
 
+export var lives = 5
 export var life = 100
 export var energy = 50
-export var gravity = 600
+export var gravity = 800
 export var moviment_speed = 12000
 export var slide_speed = 12000
 export var slide_duration = 40
@@ -35,6 +36,8 @@ var move = Vector2()
 var delta = 0
 var is_in_action = false
 var is_left = false
+
+var respawn = Vector2()
 
 func _ready():
 	$camera/LifeBar.set_maximum_value(life)
@@ -62,6 +65,8 @@ func hit(loss):
 		life = 0
 		is_in_action = true
 		animated.play('die')
+		lives -= 1
+		player_respawn(1)
 	elif not is_in_action:
 		is_in_action = true
 		animated.play('hurt')
@@ -84,3 +89,9 @@ func pass_energy(value):
 	if energy > $camera/EnergyBar.maximum_value:
 		energy = $camera/EnergyBar.maximum_value
 	$camera/EnergyBar.set_current_value(energy)
+
+func player_respawn(sec):
+	yield(get_tree().create_timer(sec), "timeout")
+	set_position(respawn)
+	pass_life($camera/LifeBar.maximum_value)
+	
