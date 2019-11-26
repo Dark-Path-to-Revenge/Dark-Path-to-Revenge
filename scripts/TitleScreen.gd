@@ -1,10 +1,14 @@
 extends Node
 
+func _ready():
+	if File.new().file_exists(global.save_file):
+		$MENU/HBOX/VBOX/ContinueGame.disabled = false
+
 func _on_NewGame_pressed():
-	get_tree().change_scene('res://scenes/level1.tscn')
+	global.next_level()
 
 func _on_ContinueGame_pressed():
-	pass # Aprender como fazer isso funcionar
+	global.load_game()
 
 func _on_Quit_pressed():
 	get_tree().quit()

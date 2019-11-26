@@ -29,7 +29,7 @@ func _physics_process(delta):
 		elif global_position.distance_to(player.global_position) < 300:
 			animated.animation = 'run'
 			var dir = (player.global_position - global_position).normalized()
-			dir.y = 0
+			dir.y = 600 * delta
 			dir = move_and_slide(dir * moviment_speed * delta)
 		else:
 			animated.animation = 'idle'

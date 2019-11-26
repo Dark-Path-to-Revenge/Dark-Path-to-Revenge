@@ -41,6 +41,7 @@ func _ready():
 	$camera/LifeBar.set_current_value(life)
 	$camera/EnergyBar.set_maximum_value(energy)
 	$camera/EnergyBar.set_current_value(energy)
+	global.init_player(self)
 
 func _physics_process(delta):
 	self.delta = delta

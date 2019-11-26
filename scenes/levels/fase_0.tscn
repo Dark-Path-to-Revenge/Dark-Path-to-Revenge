@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/environment/misc/sekai.png" type="Texture" id=2]
 [ext_resource path="res://scenes/DialogUI.tscn" type="PackedScene" id=3]
 
-[node name="fase_00" type="Node"]
+[node name="fase_0" type="Node"]
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -27,5 +27,4 @@ margin_left = -887.11
 margin_top = -200.45
 margin_right = -120.11
 margin_bottom = -45.45
-[connection signal="finished" from="." to="." method="_on_Node_finished"]
 [connection signal="next_img" from="DialogueUI" to="." method="_on_DialogueUI_next_img"]

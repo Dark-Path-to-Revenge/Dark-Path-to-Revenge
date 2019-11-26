@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Dark Path to Revenge"
-run/main_scene="res://scenes/levels/tests.tscn"
+run/main_scene="res://scenes/levels/TitleScreen.tscn"
 config/icon="res://assets/icon.png"
 
 [autoload]
