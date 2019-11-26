@@ -59,7 +59,13 @@ func hit(loss):
 	life -= loss
 	if life < 0:
 		life = 0
-		print('DEAD')
+		is_in_action = true
+		animated.play('die')
+	elif not is_in_action:
+		is_in_action = true
+		animated.play('hurt')
+		yield(animated, 'animation_finished')
+		is_in_action = false
 	$camera/LifeBar.set_current_value(life)
 
 func magic_hit():

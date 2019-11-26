@@ -127,7 +127,7 @@ animations = [ {
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": true,
+"loop": false,
 "name": "die",
 "speed": 5.0
 }, {
@@ -162,7 +162,7 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ) ],
-"loop": true,
+"loop": false,
 "name": "hurt",
 "speed": 5.0
 }, {
@@ -241,7 +241,8 @@ shape = SubResource( 6 )
 [node name="animated" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.61758, 1.61758 )
 frames = SubResource( 7 )
-animation = "hurt"
+animation = "idle"
+frame = 2
 playing = true
 
 [node name="magic_shot" type="Position2D" parent="."]

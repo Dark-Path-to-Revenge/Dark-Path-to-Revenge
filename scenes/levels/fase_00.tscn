@@ -2,9 +2,9 @@
 
 [ext_resource path="res://scripts/intro.gd" type="Script" id=1]
 [ext_resource path="res://assets/environment/misc/sekai.png" type="Texture" id=2]
-[ext_resource path="res://scenes/DIalogueUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/DialogUI.tscn" type="PackedScene" id=3]
 
-[node name="Node" type="Node"]
+[node name="fase_00" type="Node"]
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
