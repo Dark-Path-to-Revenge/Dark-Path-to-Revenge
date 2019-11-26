@@ -1,42 +1,50 @@
 extends Node
 
-const save_file = 'user://DPTR.save'
+const save_file_name = 'user://DPTR.save'
 const UP = Vector2(0,-1)
 
-var level = -1
+var level = 0
 var player
-var data
+var save
 var is_load_game = false
+var is_gameover = false
 
 func init_player(player):
 	self.player = player
 	if is_load_game:
-		player.life = data.life
-		player.energy = data.energy
+		player.life = save.life
+		player.energy = save.energy
+		player.lives = save.lives
+
+func gameover():
+	level = 0
+	is_load_game = false
+	is_gameover = true
+	get_tree().change_scene('res://scenes/levels/TitleScreen.tscn')
 
 func next_level():
 	level += 1
 	if level > 1:
-		var save_game = File.new()
-		save_game.open(save_file, File.WRITE)
-		data = {
+		var save_file = File.new()
+		save_file.open(save_file_name, File.WRITE)
+		save = {
 			'level': level,
 			'life': player.life,
 			'energy': player.energy,
-			'lives': player.live
+			'lives': player.lives
 			}
-		save_game.store_var(data)
-		save_game.close()
+		save_file.store_var(save)
+		save_file.close()
 	show_level()
 
 func load_game():
 	is_load_game = true
-	var save_game = File.new()
-	save_game.open(save_file, File.READ)
-	data = save_game.get_var()
-	save_game.close()
+	var save_file = File.new()
+	save_file.open(save_file_name, File.READ)
+	save = save_file.get_var()
+	save_file.close()
 
-	level = data.level
+	level = save.level
 	show_level()
 
 func show_level():

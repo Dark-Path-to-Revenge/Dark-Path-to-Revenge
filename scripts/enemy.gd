@@ -10,6 +10,7 @@ export var attack_frame_start = 15
 export var attack_frame_end = 19
 export (NodePath) var target
 
+var move = Vector2()
 var player_entered = false
 var attacked = false
 
@@ -28,11 +29,14 @@ func _physics_process(delta):
 			animated.animation = 'idle'
 		elif global_position.distance_to(player.global_position) < 300:
 			animated.animation = 'run'
-			var dir = (player.global_position - global_position).normalized()
-			dir.y = 600 * delta
-			dir = move_and_slide(dir * moviment_speed * delta)
+			move = (player.global_position - global_position).normalized()
+			move.y = 0
+			move = move * moviment_speed * delta
 		else:
 			animated.animation = 'idle'
+
+		move.y += 12000 * delta
+		move_and_slide(move)
 
 func attack():
 	if attack_frame_start > animated.frame or animated.frame > attack_frame_end:

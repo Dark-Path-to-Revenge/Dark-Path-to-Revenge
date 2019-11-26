@@ -1,11 +1,11 @@
 extends Node
 
 func _ready():
-	if File.new().file_exists(global.save_file):
+	if File.new().file_exists(global.save_file_name):
 		$MENU/HBOX/VBOX/ContinueGame.disabled = false
 
 func _on_NewGame_pressed():
-	global.next_level()
+	global.show_level()
 
 func _on_ContinueGame_pressed():
 	global.load_game()

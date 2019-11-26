@@ -19,7 +19,7 @@ onready var attack_sword_2 = $attack_sword_2
 onready var attack_sword_3 = $attack_sword_3
 onready var shot = $magic_shot
 
-export var lives = 5
+export var lives = 3
 export var life = 100
 export var energy = 50
 export var gravity = 800
@@ -61,11 +61,16 @@ func _physics_process(delta):
 
 func hit(loss):
 	life -= loss
-	if life < 0:
+	if life <= 0:
 		life = 0
 		is_in_action = true
 		animated.play('die')
+		yield(animated, 'animation_finished')
+		is_in_action = false
 		lives -= 1
+		if lives <= 0:
+			global.gameover()
+			return
 		player_respawn(1)
 	elif not is_in_action:
 		is_in_action = true

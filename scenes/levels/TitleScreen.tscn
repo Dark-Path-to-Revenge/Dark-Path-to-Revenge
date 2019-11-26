@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/GUI/bg_title/path_1.png" type="Texture" id=2]
@@ -9,8 +9,10 @@
 [ext_resource path="res://assets/GUI/bg_title/path_6.png" type="Texture" id=7]
 [ext_resource path="res://assets/GUI/bg_title/path_7.png" type="Texture" id=8]
 [ext_resource path="res://assets/GUI/bg_title/path_8.png" type="Texture" id=9]
-[ext_resource path="res://assets/logo.png" type="Texture" id=10]
-[ext_resource path="res://assets/ttf/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://assets/gui/gameover.png" type="Texture" id=10]
+[ext_resource path="res://assets/player/adventurer-die-06.png" type="Texture" id=11]
+[ext_resource path="res://assets/logo.png" type="Texture" id=12]
+[ext_resource path="res://assets/ttf/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -23,7 +25,7 @@ animations = [ {
 [sub_resource type="DynamicFont" id=2]
 size = 25
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 11 )
+font_data = ExtResource( 13 )
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -46,10 +48,26 @@ position = Vector2( 15.1093, 0 )
 scale = Vector2( 1.57814, 1.80959 )
 frames = SubResource( 1 )
 animation = "intro"
-frame = 6
 playing = true
 centered = false
 offset = Vector2( -100, 0 )
+
+[node name="gameover" type="Node2D" parent="TELA/BG"]
+editor/display_folded = true
+visible = false
+position = Vector2( 805.771, 512.882 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="TELA/BG/gameover"]
+scale = Vector2( 0.228022, 0.228022 )
+texture = ExtResource( 10 )
+
+[node name="Sprite2" type="Sprite" parent="TELA/BG/gameover"]
+position = Vector2( -124, 30 )
+scale = Vector2( 2.54094, 2.54094 )
+texture = ExtResource( 11 )
 
 [node name="LogoContainer" type="CenterContainer" parent="TELA"]
 editor/display_folded = true
@@ -64,7 +82,7 @@ margin_bottom = 300.0
 
 [node name="Dark Path" type="Sprite" parent="TELA/LogoContainer/HBOX"]
 scale = Vector2( 2, 2 )
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 
 [node name="MENU" type="MarginContainer" parent="."]
 anchor_left = 0.5
