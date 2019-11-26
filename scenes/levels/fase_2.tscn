@@ -111,7 +111,6 @@ position = Vector2( 3535.81, 614.295 )
 target = NodePath("../player")
 
 [node name="items" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="potion" parent="items" instance=ExtResource( 5 )]
 position = Vector2( 1046.09, 278.567 )
@@ -122,5 +121,6 @@ id = 2
 
 [node name="potion3" parent="items" instance=ExtResource( 5 )]
 position = Vector2( 3375.32, 321.737 )
+id = 2
 [connection signal="body_entered" from="death_zone" to="." method="_on_death_zone_body_entered"]
 [connection signal="body_entered" from="respawn" to="." method="_on_respawn_body_entered"]
