@@ -242,7 +242,7 @@ shape = SubResource( 6 )
 scale = Vector2( 1.61758, 1.61758 )
 frames = SubResource( 7 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="magic_shot" type="Position2D" parent="."]

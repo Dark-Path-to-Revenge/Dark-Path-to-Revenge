@@ -55,8 +55,7 @@ offset = Vector2( -100, 0 )
 
 [node name="gameover" type="Node2D" parent="TELA/BG"]
 editor/display_folded = true
-visible = false
-position = Vector2( 805.771, 512.882 )
+position = Vector2( 855.771, 514.882 )
 __meta__ = {
 "_edit_group_": true
 }
