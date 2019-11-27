@@ -59,7 +59,7 @@ A jornada de um homem em busca de vingança!
 - [x] Ataques à distância com magia
 - [ ] Habilidade especial
 - [x] Coleta/Utilização de itens
-- [ ] Morte
+- [x] Morte
 
 ### Inimigos
 <a name="inimigos"></a>
@@ -71,11 +71,11 @@ A jornada de um homem em busca de vingança!
 - [ ] Conjuração
 - [ ] Transformação
 
-### Level 01
+### Level
 <a name="level01"></a>
 - [x] Esboço
 - [ ] Quebra-cabeça
-- [ ] Eventos
+- [x] Eventos
 - [x] tileset
 - [ ] Áudio
 - [ ] \(Opcional) Efeitos especiais
@@ -85,9 +85,9 @@ A jornada de um homem em busca de vingança!
 - [x] Telas
 - [x] Menus
 - [ ] \(Opcional) Inventário
-- [ ] \(Opcional) Salvamento
-- [ ] \(Opcional) Carregamento
-- [x] HUD não diegético
+- [x] \(Opcional) Salvamento
+- [x] \(Opcional) Carregamento
+- [x] HUD
 
 ## Hierarquia
 <a name="hierarquia"></a>
