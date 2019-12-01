@@ -1,14 +1,14 @@
 class_name Enemy extends KinematicBody2D
 
 onready var animated = $animated
-onready var player = get_node(target)
+onready var player = get_node('../player')
 
+export var gravity = 50
 export var life = 100
 export var power_hit = 10
-export var moviment_speed = 8000
+export var moviment_speed = 10000
 export var attack_frame_start = 15
 export var attack_frame_end = 19
-export (NodePath) var target
 
 var move = Vector2()
 var player_entered = false
@@ -16,10 +16,13 @@ var attacked = false
 
 func _ready():
 	add_to_group('enemy')
+	add_to_group('alive')
 
 func _physics_process(delta):
 	if life > 0:
-		animated.flip_h = player.position < position
+		move.x = 0
+		move.y += gravity * delta
+		animated.flip_h = player.position.x < position.x
 	
 		if animated.animation == 'attack':
 			attack()
@@ -27,15 +30,14 @@ func _physics_process(delta):
 			animated.play('attack')
 			yield(animated, 'animation_finished')
 			animated.animation = 'idle'
-		elif global_position.distance_to(player.global_position) < 300:
+		elif position.distance_to(player.position) < 300:
 			animated.animation = 'run'
-			move = (player.global_position - global_position).normalized()
-			move.y = 0
-			move = move * moviment_speed * delta
+			move.x = moviment_speed * delta
+			if animated.flip_h:
+				move.x *= -1
 		else:
 			animated.animation = 'idle'
 
-		move.y += 12000 * delta
 		move_and_slide(move)
 
 func attack():

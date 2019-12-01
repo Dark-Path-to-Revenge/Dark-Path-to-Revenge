@@ -20,7 +20,7 @@ func run(player):
 		if not player.is_in_action:
 			player.animated.animation = 'moviment'
 		flip_magic(player)
-	elif player.animated.animation != 'idle':
+	else:
 		player.move.x = 0
 		if not player.is_in_action:
 			player.animated.animation = 'idle'
