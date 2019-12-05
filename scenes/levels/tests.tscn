@@ -1,44 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/environment/tiles/C1013.png" type="Texture" id=2]
-[ext_resource path="res://scenes/frog.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/potion.tscn" type="PackedScene" id=4]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 465.494, 37.0049 )
+[ext_resource path="res://scenes/frog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/environment/tiles/sunny_land/sunny.tres" type="TileSet" id=3]
 
 [node name="tests" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 424.083, 557.8 )
+position = Vector2( 251.369, 561.211 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-editor/display_folded = true
+[node name="frog" parent="." instance=ExtResource( 2 )]
+position = Vector2( 759.004, 550.694 )
 
-[node name="Sprite6" type="Sprite" parent="StaticBody2D"]
-position = Vector2( 444.636, 599.126 )
-scale = Vector2( 19.7403, 0.202431 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 519.989, 599.173 )
-scale = Vector2( 1.17546, 0.260578 )
-shape = SubResource( 1 )
-
-[node name="frog" parent="." instance=ExtResource( 3 )]
-position = Vector2( 781.205, 549.529 )
-target = NodePath("../../tests/player")
-
-[node name="potions" type="Node2D" parent="."]
-
-[node name="potion" parent="potions" instance=ExtResource( 4 )]
-position = Vector2( 254.053, 565.313 )
-
-[node name="potion1" parent="potions" instance=ExtResource( 4 )]
-position = Vector2( 168.969, 490.943 )
-id = 2
-
-[node name="potion2" parent="potions" instance=ExtResource( 4 )]
-position = Vector2( 611.236, 574.089 )
-id = 2
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 327712, 9, 0, 327713, 9, 0, 327714, 9, 0, 327715, 9, 0, 327716, 9, 0, 327717, 9, 0, 327718, 9, 0, 327719, 9, 0, 327720, 9, 0, 589865, 9, 0, 589866, 9, 0, 589867, 9, 0, 589868, 9, 0, 589869, 9, 0, 589870, 9, 0, 589871, 9, 0, 852001, 9, 0, 852002, 9, 0, 852003, 9, 0, 852004, 9, 0, 852005, 9, 0, 852006, 9, 0, 852007, 9, 0, 852008, 9, 0, 852009, 9, 0, 1114132, 9, 0, 1114133, 9, 0, 1114134, 9, 0, 1114135, 9, 0, 1114136, 9, 0, 1114137, 9, 0, 1114138, 9, 0, 1114139, 9, 0, 1114140, 9, 0, 1114141, 9, 0, 1114142, 9, 0, 1114143, 9, 0, 1114144, 9, 0, 1376269, 9, 0, 1376270, 9, 0, 1376271, 9, 0, 1376272, 9, 0, 1376273, 9, 0, 1376274, 9, 0, 1376275, 9, 0, 1376276, 9, 0, 1441812, 9, 0, 1507348, 9, 0, 1572884, 9, 0, 1638420, 9, 0, 1638421, 9, 0, 1638422, 9, 0, 1638423, 9, 0, 1638424, 9, 0, 1638425, 9, 0, 1638426, 9, 0, 1638427, 9, 0, 1638428, 9, 0, 1638429, 9, 0, 1900574, 9, 0, 1900575, 9, 0, 1900576, 9, 0, 1900577, 9, 0, 1900578, 9, 0, 1900579, 9, 0, 1900580, 9, 0, 1900581, 9, 0, 1900582, 9, 0, 1900583, 9, 0, 1900584, 9, 0, 1900585, 9, 0, 1900586, 9, 0, 2162711, 9, 0, 2162712, 9, 0, 2162713, 9, 0, 2162714, 9, 0, 2162715, 9, 0, 2162716, 9, 0, 2162717, 9, 0, 2162718, 9, 0, 2162719, 9, 0, 2162720, 9, 0, 2162721, 9, 0, 2162722, 9, 0, 2162723, 9, 0, 2162724, 9, 0, 2424845, 9, 0, 2424846, 9, 0, 2424847, 9, 0, 2424848, 9, 0, 2424849, 9, 0, 2424850, 9, 0, 2424851, 9, 0, 2424852, 9, 0, 2424853, 9, 0, 2424854, 9, 0, 2424855, 9, 0, 2424856, 9, 0, 2424857, 9, 0, 2424858, 9, 0, 2424859, 9, 0, 2424860, 9, 0, 2424861, 9, 0, 2424862, 9, 0, 2424863, 9, 0, 2424864, 9, 0, 2424865, 9, 0, 2424866, 9, 0, 2424867, 9, 0, 2424868, 9, 0, 2424869, 9, 0, 2424870, 9, 0, 2424871, 9, 0, 2424872, 9, 0, 2424873, 9, 0, 2424874, 9, 0, 2424875, 9, 0, 2424876, 9, 0, 2424877, 9, 0, 2424878, 9, 0, 2424879, 9, 0, 2424880, 9, 0, 2424881, 9, 0, 2424882, 9, 0, 2424883, 9, 0, 2424884, 9, 0, 2424885, 9, 0, 2424886, 9, 0, 2424887, 9, 0, 2424888, 9, 0 )
