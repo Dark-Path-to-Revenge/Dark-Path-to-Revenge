@@ -21,14 +21,14 @@ onready var shot = $magic_shot
 
 export var lives = 2
 export var life = 100
-export var energy = 50
 export var gravity = 800
-export var moviment_speed = 12000
+export var movement_speed = 12000
 export var slide_speed = 12000
 export var slide_duration = 40
 export var jump_force = 21000
 export var jump_quantity = 2
 export var power_hit = 10
+export var energy = 50
 export var power_energy_hit = 10
 export var power_magic_hit = 8
 
